@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import UIKit
+import Dispatch
 
 private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -32,7 +33,19 @@ class LocationDetailsViewController: UITableViewController {
     var categoryName = "No Category"
     
     @IBAction func done() {
-        dismiss(animated: true, completion: nil)
+        let hudView = HudView.hud(inView: navigationController!.view,
+                                  animated: true)
+        hudView.text = "Tagged"
+        
+        afterDelay(0.6, closure: {
+            self.dismiss(animated: true, completion: nil)
+        })
+        
+        /*  OR using  "trailing closure syntax"
+         afterDelay(0.6) {
+         self.dismiss(animated: true, completion: nil)
+         }
+        */
     }
     @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
@@ -124,7 +137,9 @@ class LocationDetailsViewController: UITableViewController {
             return indexPath
         } else {
             return nil
-        } }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0 {

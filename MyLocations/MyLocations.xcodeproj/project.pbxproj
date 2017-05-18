@@ -16,6 +16,7 @@
 		CDC7B9401EC661B700C2CB80 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B93F1EC661B700C2CB80 /* LocationDetailsViewController.swift */; };
 		CDC7B9421ECC23AA00C2CB80 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B9411ECC23AA00C2CB80 /* CategoryPickerViewController.swift */; };
 		CDC7B9441ECD615C00C2CB80 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B9431ECD615C00C2CB80 /* HudView.swift */; };
+		CDC7B9461ECD727F00C2CB80 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B9451ECD727F00C2CB80 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CDC7B93F1EC661B700C2CB80 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 		CDC7B9411ECC23AA00C2CB80 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 		CDC7B9431ECD615C00C2CB80 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
+		CDC7B9451ECD727F00C2CB80 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				CDC7B93F1EC661B700C2CB80 /* LocationDetailsViewController.swift */,
 				CDC7B9411ECC23AA00C2CB80 /* CategoryPickerViewController.swift */,
 				CDC7B9431ECD615C00C2CB80 /* HudView.swift */,
+				CDC7B9451ECD727F00C2CB80 /* Functions.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				CDC7B9401EC661B700C2CB80 /* LocationDetailsViewController.swift in Sources */,
 				CDB7D9241EBC775B00D86E9D /* SecondViewController.swift in Sources */,
 				CDC7B9441ECD615C00C2CB80 /* HudView.swift in Sources */,
+				CDC7B9461ECD727F00C2CB80 /* Functions.swift in Sources */,
 				CDB7D9201EBC775B00D86E9D /* AppDelegate.swift in Sources */,
 				CDC7B9421ECC23AA00C2CB80 /* CategoryPickerViewController.swift in Sources */,
 				CDB7D9221EBC775B00D86E9D /* CurrentLocationViewController.swift in Sources */,
