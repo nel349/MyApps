@@ -13,6 +13,9 @@
 		CDB7D9271EBC775B00D86E9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDB7D9251EBC775B00D86E9D /* Main.storyboard */; };
 		CDB7D9291EBC775B00D86E9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB7D9281EBC775B00D86E9D /* Assets.xcassets */; };
 		CDB7D92C1EBC775B00D86E9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDB7D92A1EBC775B00D86E9D /* LaunchScreen.storyboard */; };
+		CDC7B9401EC661B700C2CB80 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B93F1EC661B700C2CB80 /* LocationDetailsViewController.swift */; };
+		CDC7B9421ECC23AA00C2CB80 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B9411ECC23AA00C2CB80 /* CategoryPickerViewController.swift */; };
+		CDC7B9441ECD615C00C2CB80 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B9431ECD615C00C2CB80 /* HudView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		CDB7D9281EBC775B00D86E9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDB7D92B1EBC775B00D86E9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDB7D92D1EBC775B00D86E9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDC7B93F1EC661B700C2CB80 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
+		CDC7B9411ECC23AA00C2CB80 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
+		CDC7B9431ECD615C00C2CB80 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				CDB7D9281EBC775B00D86E9D /* Assets.xcassets */,
 				CDB7D92A1EBC775B00D86E9D /* LaunchScreen.storyboard */,
 				CDB7D92D1EBC775B00D86E9D /* Info.plist */,
+				CDC7B93F1EC661B700C2CB80 /* LocationDetailsViewController.swift */,
+				CDC7B9411ECC23AA00C2CB80 /* CategoryPickerViewController.swift */,
+				CDC7B9431ECD615C00C2CB80 /* HudView.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -140,8 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC7B9401EC661B700C2CB80 /* LocationDetailsViewController.swift in Sources */,
 				CDB7D9241EBC775B00D86E9D /* SecondViewController.swift in Sources */,
+				CDC7B9441ECD615C00C2CB80 /* HudView.swift in Sources */,
 				CDB7D9201EBC775B00D86E9D /* AppDelegate.swift in Sources */,
+				CDC7B9421ECC23AA00C2CB80 /* CategoryPickerViewController.swift in Sources */,
 				CDB7D9221EBC775B00D86E9D /* CurrentLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +320,7 @@
 				CDB7D9321EBC775B00D86E9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

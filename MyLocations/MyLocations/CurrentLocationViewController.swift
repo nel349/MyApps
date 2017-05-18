@@ -30,9 +30,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     
     var timer: Timer?
     
-    
-    
-    
     @IBAction func getLocation() {
         let authStatus = CLLocationManager.authorizationStatus()
         if authStatus == .notDetermined {
@@ -263,6 +260,17 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                                         code: 1, userInfo: nil)
             updateLabels()
             configureGetButton()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TagLocation" {
+            let navigationController = segue.destination
+                as! UINavigationController
+            let controller = navigationController.topViewController
+                as! LocationDetailsViewController
+            controller.coordinate = location!.coordinate
+            controller.placemark = placemark
         }
     }
     
