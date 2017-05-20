@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 import UIKit
 import Dispatch
+import CoreData
 
 private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -31,15 +32,32 @@ class LocationDetailsViewController: UITableViewController {
     var placemark: CLPlacemark?
     
     var categoryName = "No Category"
+    var managedObjectContext: NSManagedObjectContext!
+    
+    var date = Date()
     
     @IBAction func done() {
         let hudView = HudView.hud(inView: navigationController!.view,
                                   animated: true)
         hudView.text = "Tagged"
         
-        afterDelay(0.6, closure: {
-            self.dismiss(animated: true, completion: nil)
-        })
+        let location = Location(context: managedObjectContext)
+        
+        location.locationDescription = descriptionTextView.text
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+        
+        do {
+            try managedObjectContext.save()
+            afterDelay(0.6) {
+                self.dismiss(animated: true, completion: nil)
+            }
+        } catch {
+            fatalCoreDataError(error)
+        }
         
         /*  OR using  "trailing closure syntax"
          afterDelay(0.6) {
@@ -62,7 +80,7 @@ class LocationDetailsViewController: UITableViewController {
         } else {
             addressLabel.text = "No Address Found"
         }
-        dateLabel.text = format(date: Date())
+        dateLabel.text = format(date: date)
         
         let gestureRecognizer = UITapGestureRecognizer(target: self,
                                                        action: #selector(hideKeyboard))

@@ -17,6 +17,9 @@
 		CDC7B9421ECC23AA00C2CB80 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B9411ECC23AA00C2CB80 /* CategoryPickerViewController.swift */; };
 		CDC7B9441ECD615C00C2CB80 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B9431ECD615C00C2CB80 /* HudView.swift */; };
 		CDC7B9461ECD727F00C2CB80 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B9451ECD727F00C2CB80 /* Functions.swift */; };
+		CDC7B9491ECFBD1800C2CB80 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B9471ECFBD1800C2CB80 /* DataModel.xcdatamodeld */; };
+		CDC7B94C1ECFBF4B00C2CB80 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B94A1ECFBF4B00C2CB80 /* Location+CoreDataClass.swift */; };
+		CDC7B94D1ECFBF4B00C2CB80 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B94B1ECFBF4B00C2CB80 /* Location+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		CDC7B9411ECC23AA00C2CB80 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 		CDC7B9431ECD615C00C2CB80 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		CDC7B9451ECD727F00C2CB80 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		CDC7B9481ECFBD1800C2CB80 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		CDC7B94A1ECFBF4B00C2CB80 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CDC7B94B1ECFBF4B00C2CB80 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +54,8 @@
 		CDB7D9131EBC775B00D86E9D = {
 			isa = PBXGroup;
 			children = (
+				CDC7B94A1ECFBF4B00C2CB80 /* Location+CoreDataClass.swift */,
+				CDC7B94B1ECFBF4B00C2CB80 /* Location+CoreDataProperties.swift */,
 				CDB7D91E1EBC775B00D86E9D /* MyLocations */,
 				CDB7D91D1EBC775B00D86E9D /* Products */,
 			);
@@ -75,6 +83,7 @@
 				CDC7B9411ECC23AA00C2CB80 /* CategoryPickerViewController.swift */,
 				CDC7B9431ECD615C00C2CB80 /* HudView.swift */,
 				CDC7B9451ECD727F00C2CB80 /* Functions.swift */,
+				CDC7B9471ECFBD1800C2CB80 /* DataModel.xcdatamodeld */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -153,10 +162,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDC7B9401EC661B700C2CB80 /* LocationDetailsViewController.swift in Sources */,
+				CDC7B9491ECFBD1800C2CB80 /* DataModel.xcdatamodeld in Sources */,
 				CDB7D9241EBC775B00D86E9D /* SecondViewController.swift in Sources */,
 				CDC7B9441ECD615C00C2CB80 /* HudView.swift in Sources */,
+				CDC7B94D1ECFBF4B00C2CB80 /* Location+CoreDataProperties.swift in Sources */,
 				CDC7B9461ECD727F00C2CB80 /* Functions.swift in Sources */,
 				CDB7D9201EBC775B00D86E9D /* AppDelegate.swift in Sources */,
+				CDC7B94C1ECFBF4B00C2CB80 /* Location+CoreDataClass.swift in Sources */,
 				CDC7B9421ECC23AA00C2CB80 /* CategoryPickerViewController.swift in Sources */,
 				CDB7D9221EBC775B00D86E9D /* CurrentLocationViewController.swift in Sources */,
 			);
@@ -327,6 +339,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CDC7B9471ECFBD1800C2CB80 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CDC7B9481ECFBD1800C2CB80 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = CDC7B9481ECFBD1800C2CB80 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CDB7D9141EBC775B00D86E9D /* Project object */;
 }
