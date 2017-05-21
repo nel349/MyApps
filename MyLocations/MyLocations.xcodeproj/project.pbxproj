@@ -20,6 +20,10 @@
 		CDC7B9491ECFBD1800C2CB80 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B9471ECFBD1800C2CB80 /* DataModel.xcdatamodeld */; };
 		CDC7B94C1ECFBF4B00C2CB80 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B94A1ECFBF4B00C2CB80 /* Location+CoreDataClass.swift */; };
 		CDC7B94D1ECFBF4B00C2CB80 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B94B1ECFBF4B00C2CB80 /* Location+CoreDataProperties.swift */; };
+		CDC7B94F1ED174E000C2CB80 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B94E1ED174E000C2CB80 /* LocationsViewController.swift */; };
+		CDC7B9511ED18A1D00C2CB80 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B9501ED18A1D00C2CB80 /* LocationCell.swift */; };
+		CDC7B9561ED2519500C2CB80 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC7B9551ED2519500C2CB80 /* MapKit.framework */; };
+		CDC7B9581ED252C800C2CB80 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7B9571ED252C800C2CB80 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		CDC7B9481ECFBD1800C2CB80 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		CDC7B94A1ECFBF4B00C2CB80 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CDC7B94B1ECFBF4B00C2CB80 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CDC7B94E1ED174E000C2CB80 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		CDC7B9501ED18A1D00C2CB80 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		CDC7B9551ED2519500C2CB80 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CDC7B9571ED252C800C2CB80 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC7B9561ED2519500C2CB80 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +67,7 @@
 				CDC7B94B1ECFBF4B00C2CB80 /* Location+CoreDataProperties.swift */,
 				CDB7D91E1EBC775B00D86E9D /* MyLocations */,
 				CDB7D91D1EBC775B00D86E9D /* Products */,
+				CDC7B9521ED2519300C2CB80 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,8 +94,19 @@
 				CDC7B9431ECD615C00C2CB80 /* HudView.swift */,
 				CDC7B9451ECD727F00C2CB80 /* Functions.swift */,
 				CDC7B9471ECFBD1800C2CB80 /* DataModel.xcdatamodeld */,
+				CDC7B94E1ED174E000C2CB80 /* LocationsViewController.swift */,
+				CDC7B9501ED18A1D00C2CB80 /* LocationCell.swift */,
+				CDC7B9571ED252C800C2CB80 /* MapViewController.swift */,
 			);
 			path = MyLocations;
+			sourceTree = "<group>";
+		};
+		CDC7B9521ED2519300C2CB80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDC7B9551ED2519500C2CB80 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +143,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = M569N7RGY6;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -165,7 +191,10 @@
 				CDC7B9491ECFBD1800C2CB80 /* DataModel.xcdatamodeld in Sources */,
 				CDB7D9241EBC775B00D86E9D /* SecondViewController.swift in Sources */,
 				CDC7B9441ECD615C00C2CB80 /* HudView.swift in Sources */,
+				CDC7B94F1ED174E000C2CB80 /* LocationsViewController.swift in Sources */,
 				CDC7B94D1ECFBF4B00C2CB80 /* Location+CoreDataProperties.swift in Sources */,
+				CDC7B9581ED252C800C2CB80 /* MapViewController.swift in Sources */,
+				CDC7B9511ED18A1D00C2CB80 /* LocationCell.swift in Sources */,
 				CDC7B9461ECD727F00C2CB80 /* Functions.swift in Sources */,
 				CDB7D9201EBC775B00D86E9D /* AppDelegate.swift in Sources */,
 				CDC7B94C1ECFBF4B00C2CB80 /* Location+CoreDataClass.swift in Sources */,
