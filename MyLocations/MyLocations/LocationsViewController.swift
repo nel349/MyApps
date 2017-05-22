@@ -12,7 +12,7 @@ import CoreData
 import CoreLocation
 
 class LocationsViewController: UITableViewController {
-   
+    
     
     lazy var fetchedResultsController:
         NSFetchedResultsController<Location> = {

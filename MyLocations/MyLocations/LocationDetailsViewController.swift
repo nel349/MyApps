@@ -36,6 +36,20 @@ class LocationDetailsViewController: UITableViewController {
     
     var date = Date()
     
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addPhotoLabel: UILabel!
+    
+    var image: UIImage? {
+        didSet {
+            if let image = image {
+                imageView.image = image
+                imageView.isHidden = false
+                imageView.frame = CGRect(x: 10, y: 10, width: 260, height: 260)
+                addPhotoLabel.isHidden = true
+            }
+        }
+    }
+    
     //for editing location
     var locationToEdit: Location? {
         didSet {
@@ -49,7 +63,7 @@ class LocationDetailsViewController: UITableViewController {
             }
         }
     }
-                
+    
     var descriptionText = ""
     
     @IBAction func done() {
@@ -84,7 +98,7 @@ class LocationDetailsViewController: UITableViewController {
          afterDelay(0.6) {
          self.dismiss(animated: true, completion: nil)
          }
-        */
+         */
     }
     @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
@@ -112,12 +126,7 @@ class LocationDetailsViewController: UITableViewController {
                                                        action: #selector(hideKeyboard))
         gestureRecognizer.cancelsTouchesInView = false
         tableView.addGestureRecognizer(gestureRecognizer)
-        
-        print("Bound position of descriptiontextView: \(descriptionTextView.bounds.origin)" )
-        print("Frame postition of descriptiontextView: \(descriptionTextView.frame.origin)")
-        
-        print("Bound position of latitudelabel: \(latitudeLabel.bounds.maxX) \(latitudeLabel.bounds.maxY)" )
-        print("Frame postition of latitudelabel: \(latitudeLabel.frame.origin)")
+        listenForBackgroundNotification()
     }
     
     func string(from placemark: CLPlacemark) -> String {
@@ -144,12 +153,14 @@ class LocationDetailsViewController: UITableViewController {
         return dateFormatter.string(from: date)
     }
     
-    // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView,
                             heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 && indexPath.row == 0 {
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0):
             return 88
-        } else if indexPath.section == 2 && indexPath.row == 2 {
+        case (1, _):
+            return imageView.isHidden ? 44 : 280
+        case (2, 2):
             addressLabel.frame.size = CGSize(
                 width: view.bounds.size.width - 115,
                 height: 10000)
@@ -157,9 +168,13 @@ class LocationDetailsViewController: UITableViewController {
             addressLabel.frame.origin.x = view.bounds.size.width -
                 addressLabel.frame.size.width - 15
             return addressLabel.frame.size.height + 20
-        } else {
-            return 44 }
+        default:
+            return 44
+        }
     }
+    /*
+     Exercise. Make the height of the photo table view cell dynamic, depending on the aspect ratio of the image. This is a tough one! You can keep the width of the image view at 260 points. This should correspond to the width of the UIImage object. You get the aspect ratio by doing image.size.width / image.size.height.
+     */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PickCategory" {
@@ -188,6 +203,9 @@ class LocationDetailsViewController: UITableViewController {
                             didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0 {
             descriptionTextView.becomeFirstResponder()
+        } else if indexPath.section == 1 && indexPath.row == 0 {
+            tableView.deselectRow(at: indexPath, animated: true)
+            pickPhoto()
         }
     }
     
@@ -200,5 +218,85 @@ class LocationDetailsViewController: UITableViewController {
         
         descriptionTextView.resignFirstResponder()
     }
+    
+    /*
+     By the way, this has no effect on the category picker; that does not use a modal segue but a push segue
+     */
+    func listenForBackgroundNotification() {
+        NotificationCenter.default.addObserver(
+            forName: Notification.Name.UIApplicationDidEnterBackground,
+            object: nil, queue: OperationQueue.main) { _ in
+                if self.presentedViewController != nil {
+                    self.dismiss(animated: false, completion: nil)
+                }
+                self.descriptionTextView.resignFirstResponder()
+        }
+    }
+}
 
+extension LocationDetailsViewController:
+UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func takePhotoWithCamera() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func choosePhotoFromLibrary() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        image = info[UIImagePickerControllerEditedImage] as? UIImage
+        //        if let theImage = image {
+        //            show(image: theImage)
+        //        }
+        
+        dismiss(animated: true, completion: nil)
+        tableView.reloadData()
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func pickPhoto() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            showPhotoMenu()
+        } else {
+            choosePhotoFromLibrary()
+        }
+    }
+    
+    func showPhotoMenu() {
+        let alertController = UIAlertController(title: nil, message: nil,
+                                                preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel,
+                                         handler: nil)
+        alertController.addAction(cancelAction)
+        let takePhotoAction = UIAlertAction(title: "Take Photo",
+                                            style: .default, handler: { _ in self.takePhotoWithCamera() })
+        alertController.addAction(takePhotoAction)
+        let chooseFromLibraryAction = UIAlertAction(title:
+            "Choose From Library", style: .default, handler: { _ in self.choosePhotoFromLibrary() })
+        alertController.addAction(chooseFromLibraryAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    //    func show(image: UIImage) {
+    //        imageView.image = image
+    //        imageView.isHidden = false
+    //        imageView.frame = CGRect(x: 10, y: 10, width: 260, height: 260)
+    //        addPhotoLabel.isHidden = true
+    //    }
+    
+    
 }
