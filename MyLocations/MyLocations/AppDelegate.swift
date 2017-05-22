@@ -28,18 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     func listenForFatalCoreDataNotifications() {
-        // 1
+        
         NotificationCenter.default.addObserver(
             forName: MyManagedObjectContextSaveDidFailNotification,
             object: nil, queue: OperationQueue.main, using: { notification in
-                // 2
+                
                 let alert = UIAlertController(
                     title: "Internal Error",
                     message:
                     "There was a fatal error in the app and it cannot continue.\n\n"
                         + "Press OK to terminate the app. Sorry for the inconvenience.",
                     preferredStyle: .alert)
-                // 3
+                
                 let action = UIAlertAction(title: "OK", style: .default) { _ in
                     let exception = NSException(
                         name: NSExceptionName.internalInconsistencyException,
@@ -47,10 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     exception.raise()
                 }
                 alert.addAction(action)
-                // 4
+               
                 self.viewControllerForShowingAlert().present(alert, animated: true,
                                                              completion: nil)
-    }) }
+        })
+    }
     
     func viewControllerForShowingAlert() -> UIViewController {
         let rootViewController = self.window!.rootViewController!
