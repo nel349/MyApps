@@ -39,6 +39,8 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var addPhotoLabel: UILabel!
     
+    var observer: Any!
+    
     var image: UIImage? {
         didSet {
             if let image = image {
@@ -76,6 +78,7 @@ class LocationDetailsViewController: UITableViewController {
         } else {
             hudView.text = "Tagged"
             location = Location(context: managedObjectContext)
+            location.photoID = nil
         }
         
         location.locationDescription = descriptionTextView.text
@@ -84,6 +87,22 @@ class LocationDetailsViewController: UITableViewController {
         location.longitude = coordinate.longitude
         location.date = date
         location.placemark = placemark
+        
+        if let image = image {
+            // 1
+            if !location.hasPhoto {
+                location.photoID = Location.nextPhotoID() as NSNumber
+            }
+            // 2
+            if let data = UIImageJPEGRepresentation(image, 0.5) {
+                // 3
+                do {
+                    try data.write(to: location.photoURL, options: .atomic)
+                } catch {
+                    print("Error writing file: \(error)")
+                }
+            }
+        }
         
         do {
             try managedObjectContext.save()
@@ -109,6 +128,11 @@ class LocationDetailsViewController: UITableViewController {
         
         if let location = locationToEdit {
             title = "Edit Location"
+            if location.hasPhoto {
+                if let theImage = location.photoImage {
+                    show(theImage)
+                }
+            }
         }
         
         descriptionTextView.text = descriptionText
@@ -223,14 +247,23 @@ class LocationDetailsViewController: UITableViewController {
      By the way, this has no effect on the category picker; that does not use a modal segue but a push segue
      */
     func listenForBackgroundNotification() {
-        NotificationCenter.default.addObserver(
+        observer = NotificationCenter.default.addObserver(
             forName: Notification.Name.UIApplicationDidEnterBackground,
-            object: nil, queue: OperationQueue.main) { _ in
-                if self.presentedViewController != nil {
-                    self.dismiss(animated: false, completion: nil)
+            object: nil, queue: OperationQueue.main) {
+                [weak self] _ in
+                if let strongSelf = self {
+                    if strongSelf.presentedViewController != nil {
+                        strongSelf.dismiss(animated: false, completion: nil)
+                    }
+                    strongSelf.descriptionTextView.resignFirstResponder()
                 }
-                self.descriptionTextView.resignFirstResponder()
         }
+    }
+    
+    //Always deinit observers!!
+    deinit {
+        print("*** deinit \(self)")
+        NotificationCenter.default.removeObserver(observer)
     }
 }
 
@@ -291,12 +324,10 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         present(alertController, animated: true, completion: nil)
     }
     
-    //    func show(image: UIImage) {
-    //        imageView.image = image
-    //        imageView.isHidden = false
-    //        imageView.frame = CGRect(x: 10, y: 10, width: 260, height: 260)
-    //        addPhotoLabel.isHidden = true
-    //    }
-    
-    
+        func show(_ image: UIImage) {
+            imageView.image = image
+            imageView.isHidden = false
+            imageView.frame = CGRect(x: 10, y: 10, width: 260, height: 260)
+            addPhotoLabel.isHidden = true
+        }
 }
