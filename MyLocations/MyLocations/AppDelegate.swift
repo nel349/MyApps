@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     func listenForFatalCoreDataNotifications() {
-        
         NotificationCenter.default.addObserver(
             forName: MyManagedObjectContextSaveDidFailNotification,
             object: nil, queue: OperationQueue.main, using: { notification in
@@ -64,8 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func customizeAppearance() {
         UINavigationBar.appearance().barTintColor = UIColor.black
-        UINavigationBar.appearance().titleTextAttributes = [
-            NSForegroundColorAttributeName: UIColor.white ]
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white ]
         UITabBar.appearance().barTintColor = UIColor.black
         let tintColor = UIColor(red: 255/255.0, green: 238/255.0,
                                 blue: 136/255.0, alpha: 1.0)
@@ -91,10 +89,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let mapViewController = tabBarViewControllers[2] as! MapViewController
             mapViewController.managedObjectContext = managedObjectContext
+            let _ = locationsViewController.view
+
         }
         
         
-        
+        listenForFatalCoreDataNotifications()
         print(applicationDocumentsDirectory)
         return true
     }
