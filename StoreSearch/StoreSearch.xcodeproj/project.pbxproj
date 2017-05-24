@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CDC08FE81ED50209004D41AB /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC08FE71ED50209004D41AB /* SearchResult.swift */; };
+		CDC08FEA1ED51AE6004D41AB /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC08FE91ED51AE6004D41AB /* SearchResultCell.xib */; };
+		CDC08FEC1ED51FDF004D41AB /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC08FEB1ED51FDF004D41AB /* SearchResultCell.swift */; };
+		CDC08FEE1ED525FC004D41AB /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC08FED1ED525FC004D41AB /* NothingFoundCell.xib */; };
 		CDE16BCC1ED4B86F0036693A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE16BCB1ED4B86F0036693A /* AppDelegate.swift */; };
 		CDE16BCE1ED4B86F0036693A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE16BCD1ED4B86F0036693A /* SearchViewController.swift */; };
 		CDE16BD11ED4B86F0036693A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE16BCF1ED4B86F0036693A /* Main.storyboard */; };
@@ -17,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		CDC08FE71ED50209004D41AB /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		CDC08FE91ED51AE6004D41AB /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		CDC08FEB1ED51FDF004D41AB /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		CDC08FED1ED525FC004D41AB /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		CDE16BC81ED4B86F0036693A /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE16BCB1ED4B86F0036693A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDE16BCD1ED4B86F0036693A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +69,9 @@
 				CDE16BD41ED4B8700036693A /* LaunchScreen.storyboard */,
 				CDE16BD71ED4B8700036693A /* Info.plist */,
 				CDC08FE71ED50209004D41AB /* SearchResult.swift */,
+				CDC08FE91ED51AE6004D41AB /* SearchResultCell.xib */,
+				CDC08FEB1ED51FDF004D41AB /* SearchResultCell.swift */,
+				CDC08FED1ED525FC004D41AB /* NothingFoundCell.xib */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -129,6 +138,8 @@
 			files = (
 				CDE16BD61ED4B8700036693A /* LaunchScreen.storyboard in Resources */,
 				CDE16BD31ED4B86F0036693A /* Assets.xcassets in Resources */,
+				CDC08FEA1ED51AE6004D41AB /* SearchResultCell.xib in Resources */,
+				CDC08FEE1ED525FC004D41AB /* NothingFoundCell.xib in Resources */,
 				CDE16BD11ED4B86F0036693A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +153,7 @@
 			files = (
 				CDE16BCE1ED4B86F0036693A /* SearchViewController.swift in Sources */,
 				CDC08FE81ED50209004D41AB /* SearchResult.swift in Sources */,
+				CDC08FEC1ED51FDF004D41AB /* SearchResultCell.swift in Sources */,
 				CDE16BCC1ED4B86F0036693A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
