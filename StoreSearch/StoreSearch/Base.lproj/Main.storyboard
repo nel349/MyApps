@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9kV-xB-ib6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Eqa-kM-1N9"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="fYT-Ek-a9u"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="App name, artist, song, album, e-book" translatesAutoresizingMaskIntoConstraints="NO" id="dpp-rn-5Yr">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="wpj-Ma-wtB"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9kV-xB-ib6" secondAttribute="trailing" id="9Qs-ON-zxn"/>
+                            <constraint firstItem="dpp-rn-5Yr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BF0-Vj-BKp"/>
+                            <constraint firstItem="9kV-xB-ib6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rb9-qm-jGA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9kV-xB-ib6" secondAttribute="bottom" id="Sfl-B0-Mdu"/>
+                            <constraint firstAttribute="trailing" secondItem="dpp-rn-5Yr" secondAttribute="trailing" id="eai-0D-Cjh"/>
+                            <constraint firstItem="dpp-rn-5Yr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="fdt-U8-Dje"/>
+                            <constraint firstItem="9kV-xB-ib6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ufJ-9m-nZl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="dpp-rn-5Yr" id="Ig6-e8-bgc"/>
+                        <outlet property="tableView" destination="9kV-xB-ib6" id="nXr-f7-54s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120" y="149"/>
+        </scene>
+    </scenes>
+</document>
