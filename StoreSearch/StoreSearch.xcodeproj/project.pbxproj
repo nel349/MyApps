@@ -13,6 +13,8 @@
 		CDC08FEE1ED525FC004D41AB /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC08FED1ED525FC004D41AB /* NothingFoundCell.xib */; };
 		CDC08FF01ED77764004D41AB /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC08FEF1ED77764004D41AB /* LoadingCell.xib */; };
 		CDC08FF21ED81FEB004D41AB /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC08FF11ED81FEB004D41AB /* UIImageView+DownloadImage.swift */; };
+		CDC08FF41ED82D01004D41AB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC08FF31ED82D01004D41AB /* DetailViewController.swift */; };
+		CDC08FF61ED83180004D41AB /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC08FF51ED83180004D41AB /* DimmingPresentationController.swift */; };
 		CDE16BCC1ED4B86F0036693A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE16BCB1ED4B86F0036693A /* AppDelegate.swift */; };
 		CDE16BCE1ED4B86F0036693A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE16BCD1ED4B86F0036693A /* SearchViewController.swift */; };
 		CDE16BD11ED4B86F0036693A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE16BCF1ED4B86F0036693A /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 		CDC08FED1ED525FC004D41AB /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		CDC08FEF1ED77764004D41AB /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		CDC08FF11ED81FEB004D41AB /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		CDC08FF31ED82D01004D41AB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CDC08FF51ED83180004D41AB /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 		CDE16BC81ED4B86F0036693A /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE16BCB1ED4B86F0036693A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDE16BCD1ED4B86F0036693A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				CDC08FED1ED525FC004D41AB /* NothingFoundCell.xib */,
 				CDC08FEF1ED77764004D41AB /* LoadingCell.xib */,
 				CDC08FF11ED81FEB004D41AB /* UIImageView+DownloadImage.swift */,
+				CDC08FF31ED82D01004D41AB /* DetailViewController.swift */,
+				CDC08FF51ED83180004D41AB /* DimmingPresentationController.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -154,6 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC08FF41ED82D01004D41AB /* DetailViewController.swift in Sources */,
+				CDC08FF61ED83180004D41AB /* DimmingPresentationController.swift in Sources */,
 				CDE16BCE1ED4B86F0036693A /* SearchViewController.swift in Sources */,
 				CDC08FE81ED50209004D41AB /* SearchResult.swift in Sources */,
 				CDC08FEC1ED51FDF004D41AB /* SearchResultCell.swift in Sources */,

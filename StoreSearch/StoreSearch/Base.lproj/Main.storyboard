@@ -42,7 +42,7 @@
                                     <navigationItem id="jgS-XD-62M">
                                         <nil key="title"/>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="QsL-dh-Kcb">
-                                            <rect key="frame" x="96" y="7.5" width="300" height="30"/>
+                                            <rect key="frame" x="10" y="7" width="300" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="All"/>
@@ -76,11 +76,57 @@
                         <outlet property="searchBar" destination="dpp-rn-5Yr" id="Ig6-e8-bgc"/>
                         <outlet property="segmentedControl" destination="QsL-dh-Kcb" id="Ls8-4a-mWM"/>
                         <outlet property="tableView" destination="9kV-xB-ib6" id="nXr-f7-54s"/>
+                        <segue destination="JW0-TM-vFs" kind="presentation" identifier="ShowDetail" id="ElX-vN-DmI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="120" y="149"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="McK-bW-rN5">
+            <objects>
+                <viewController id="JW0-TM-vFs" customClass="DetailViewController" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cXD-Vo-pnt"/>
+                        <viewControllerLayoutGuide type="bottom" id="iA0-JV-KWo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dcs-cE-kLX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8h-75-KiZ" userLabel="Pop-up View">
+                                <rect key="frame" x="40" y="164.5" width="240" height="240"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iII-Q4-EVN" userLabel="Close Button">
+                                        <rect key="frame" x="3" y="0.0" width="15" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="CloseButton"/>
+                                        <connections>
+                                            <action selector="close" destination="JW0-TM-vFs" eventType="touchUpInside" id="uZQ-tF-jv9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.9493792808219178" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="r2W-xl-cCc"/>
+                                    <constraint firstAttribute="width" constant="240" id="vg8-Dd-KIU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="n8h-75-KiZ" firstAttribute="centerX" secondItem="Dcs-cE-kLX" secondAttribute="centerX" id="hRb-U1-C8S"/>
+                            <constraint firstItem="n8h-75-KiZ" firstAttribute="centerY" secondItem="Dcs-cE-kLX" secondAttribute="centerY" id="jc0-3g-ZLL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m0Z-cV-c7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1159" y="149"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="CloseButton" width="15" height="15"/>
+    </resources>
 </document>

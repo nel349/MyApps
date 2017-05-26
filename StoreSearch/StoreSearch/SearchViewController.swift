@@ -314,6 +314,7 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "ShowDetail", sender: indexPath)
     }
     
     //Making sure proper cells can be selected. (nothing found) should not be selectable
@@ -325,8 +326,8 @@ extension SearchViewController: UITableViewDelegate {
             return indexPath
         }
     }
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { //this doesn't work beacuase the height row is not loaded on ViewDidLoad
-    //        return 80
-    //    }
+    
+
+
 }
 
