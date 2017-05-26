@@ -27,10 +27,13 @@ class SearchViewController: UIViewController {
     
     var dataTask: URLSessionDataTask?
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right:0)
+        tableView.contentInset = UIEdgeInsets(top: 108, left: 0, bottom: 0, right:0)
         var cellNib = UINib(nibName: TableViewCellIdentifiers.searchResultCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.searchResultCell)
         cellNib = UINib(nibName: TableViewCellIdentifiers.nothingFoundCell, bundle: nil)
@@ -191,6 +194,10 @@ class SearchViewController: UIViewController {
         return searchResult
     }
     
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        performSearch()
+    }
+    
 }
 
 func < (lhs: SearchResult, rhs: SearchResult) -> Bool {
@@ -200,7 +207,7 @@ func < (lhs: SearchResult, rhs: SearchResult) -> Bool {
 extension SearchViewController: UISearchBarDelegate {
     
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func performSearch() {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder()
             dataTask?.cancel()
@@ -209,7 +216,8 @@ extension SearchViewController: UISearchBarDelegate {
             hasSearched = true
             searchResults = []
             
-            let url = iTunesURL(searchText: searchBar.text!)
+            let url = self.iTunesURL(searchText: searchBar.text!,
+                                     category: segmentedControl.selectedSegmentIndex)
             
             let session = URLSession.shared
             
@@ -226,7 +234,7 @@ extension SearchViewController: UISearchBarDelegate {
                         DispatchQueue.main.async {
                             self.isLoading = false
                             self.tableView.reloadData()
-//                            print("On main thread? " + (Thread.current.isMainThread ? "Yes" : "No"))
+                            //                            print("On main thread? " + (Thread.current.isMainThread ? "Yes" : "No"))
                         }
                         return
                     }
@@ -239,7 +247,7 @@ extension SearchViewController: UISearchBarDelegate {
                     self.tableView.reloadData()
                     self.showNetworkError()
                 }
-
+                
             })
             
             dataTask?.resume()
@@ -250,6 +258,11 @@ extension SearchViewController: UISearchBarDelegate {
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        performSearch()
+    }
+    
 }
 
 extension SearchViewController: UITableViewDataSource {
@@ -298,11 +311,19 @@ extension SearchViewController: UITableViewDataSource {
         }
     }
     
-    func iTunesURL(searchText: String) -> URL {
+    func iTunesURL(searchText: String, category: Int) -> URL {
+        let entityName: String
+        switch category {
+        case 1: entityName = "musicTrack"
+        case 2: entityName = "software"
+        case 3: entityName = "ebook"
+        default: entityName = ""
+        }
         let escapedSearchText = searchText.addingPercentEncoding(
             withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let urlString = String(format:
-            "https://itunes.apple.com/search?term=%@&limit=200", escapedSearchText)
+            "https://itunes.apple.com/search?term=%@&limit=200&entity=%@",
+                               escapedSearchText, entityName)
         let url = URL(string: urlString)
         return url!
     }
