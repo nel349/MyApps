@@ -44,12 +44,9 @@ class SearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func parse(json: String) -> [String: Any]? {
-        guard let data = json.data(using: .utf8, allowLossyConversion: false)
-            else { return nil }
+    func parse(json data: Data) -> [String: Any]? {
         do {
-            return try JSONSerialization.jsonObject(
-                with: data, options: []) as? [String: Any]
+            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
         } catch {
             print("JSON Error: \(error)")
             return nil
@@ -117,10 +114,7 @@ class SearchViewController: UIViewController {
             message:
             "There was an error reading from the iTunes Store. Please try again.",
             preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler:{ _ in
-            self.isLoading = false
-            self.tableView.reloadData()
-        })
+        let action = UIAlertAction(title: "OK", style: .default, handler:nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
@@ -202,40 +196,49 @@ func < (lhs: SearchResult, rhs: SearchResult) -> Bool {
 }
 
 extension SearchViewController: UISearchBarDelegate {
+    
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder()
             isLoading = true
             tableView.reloadData()
-            
             hasSearched = true
             searchResults = []
+            
             let url = iTunesURL(searchText: searchBar.text!)
-            print("URL: '\(url)'")
             
-            let queue = DispatchQueue.global()
+            let session = URLSession.shared
             
-            queue.async {
-                if let jsonString = self.performStoreRequest(with: url) {
-                    //                print("Received JSON string '\(jsonString)'")
-                    if let jsonDictionary = self.parse(json: jsonString) {
-                        //                    print("Dictionary \(jsonDictionary)")
+            let dataTask = session.dataTask(with: url, completionHandler: {
+                data, response, error in
+                if let error = error {
+                    print("Failure! \(error)")
+                } else if let httpResponse = response as? HTTPURLResponse,
+                    httpResponse.statusCode == 200 {
+                    if let data = data, let jsonDictionary = self.parse(json: data) {
                         self.searchResults = self.parse(dictionary: jsonDictionary)
-                        self.searchResults.sort(by: <) //OR  searchResults.sort($0 < $1)
-                        
-                        
+                        self.searchResults.sort(by: <)
                         DispatchQueue.main.async {
                             self.isLoading = false
                             self.tableView.reloadData()
+//                            print("On main thread? " + (Thread.current.isMainThread ? "Yes" : "No"))
                         }
-                        
                         return
                     }
+                } else {
+                    print("Failure! \(response)")
                 }
                 DispatchQueue.main.async {
+                    self.hasSearched = false
+                    self.isLoading = false
+                    self.tableView.reloadData()
                     self.showNetworkError()
                 }
-            }
+
+            })
+            
+            dataTask.resume()
         }
     }
     
@@ -295,19 +298,11 @@ extension SearchViewController: UITableViewDataSource {
         let escapedSearchText = searchText.addingPercentEncoding(
             withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let urlString = String(format:
-            "https://itunes.apple.com/search?term=%@", escapedSearchText)
+            "https://itunes.apple.com/search?term=%@&limit=200", escapedSearchText)
         let url = URL(string: urlString)
         return url!
     }
     
-    func performStoreRequest(with url: URL) -> String? {
-        do {
-            return try String(contentsOf: url, encoding: .utf8)
-        } catch {
-            print("Download Error: \(error)")
-            return nil
-        }
-    }
 }
 
 extension SearchViewController: UITableViewDelegate {
