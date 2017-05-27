@@ -36,6 +36,7 @@ class DetailViewController: UIViewController {
         gestureRecognizer.cancelsTouchesInView = false
         gestureRecognizer.delegate = self
         view.addGestureRecognizer(gestureRecognizer)
+        view.backgroundColor = UIColor.clear
         
         // Do any additional setup after loading the view.
     }
