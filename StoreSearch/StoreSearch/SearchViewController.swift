@@ -248,6 +248,15 @@ extension SearchViewController: UISearchBarDelegate {
         performSearch()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" {
+            let destination = segue.destination as! DetailViewController
+            let indexPath = sender as! IndexPath
+            destination.searchResult = searchResults[indexPath.row]
+            
+        }
+    }
+    
 }
 
 extension SearchViewController: UITableViewDataSource {
