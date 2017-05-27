@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
         }
         
         let gestureRecognizer = UITapGestureRecognizer(target: self,action: #selector(close))
-        gestureRecognizer.cancelsTouchesInView = false
+        gestureRecognizer.cancelsTouchesInView = true
         gestureRecognizer.delegate = self
         view.addGestureRecognizer(gestureRecognizer)
         view.backgroundColor = UIColor.clear
@@ -104,6 +104,16 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
                                 presenting: UIViewController?,
                                 source: UIViewController) -> UIPresentationController? {
         return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+    
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController, source: UIViewController)
+        -> UIViewControllerAnimatedTransitioning? {
+            return BounceAnimationController()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            return SlideOutAnimationController()
     }
 }
 
