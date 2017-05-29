@@ -29,6 +29,8 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    var landscapeViewController: LandscapeViewController?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,7 +125,7 @@ class SearchViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-
+    
     
     func parse(audiobook dictionary: [String: Any]) -> SearchResult {
         let searchResult = SearchResult()
@@ -181,6 +183,17 @@ class SearchViewController: UIViewController {
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         performSearch()
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection,
+                                 with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        switch newCollection.verticalSizeClass {
+        case .compact:
+            showLandscape(with: coordinator)
+        case .regular, .unspecified:
+            hideLandscape(with: coordinator)
+        }
     }
     
 }
@@ -316,6 +329,45 @@ extension SearchViewController: UITableViewDataSource {
         return url!
     }
     
+    func showLandscape(with coordinator:
+        // 1
+        UIViewControllerTransitionCoordinator) {
+        guard landscapeViewController == nil else { return }
+        // 2
+        landscapeViewController = storyboard!.instantiateViewController(
+            withIdentifier: "LandscapeViewController")
+            as? LandscapeViewController
+        if let controller = landscapeViewController {
+            controller.view.frame = view.bounds
+            controller.view.alpha = 0
+            view.addSubview(controller.view)
+            addChildViewController(controller)
+            coordinator.animate(alongsideTransition: { _ in
+                controller.view.alpha = 1
+                self.searchBar.resignFirstResponder()
+                if self.presentedViewController != nil {
+                      self.dismiss(animated: true, completion: nil)
+                }
+            }, completion: { _ in
+                controller.didMove(toParentViewController: self)
+            })
+        }
+    }
+    
+    func hideLandscape(with coordinator:
+        UIViewControllerTransitionCoordinator) {
+        if let controller = landscapeViewController {
+            controller.willMove(toParentViewController: nil)
+            coordinator.animate(alongsideTransition: { _ in
+                controller.view.alpha = 0
+            }, completion: { _ in
+                controller.view.removeFromSuperview()
+                controller.removeFromParentViewController()
+                self.landscapeViewController = nil
+            })
+        }
+    }
+    
 }
 
 extension SearchViewController: UITableViewDelegate {
@@ -336,7 +388,7 @@ extension SearchViewController: UITableViewDelegate {
         }
     }
     
-
-
+    
+    
 }
 

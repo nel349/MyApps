@@ -22,6 +22,11 @@ class DetailViewController: UIViewController {
     
     var searchResult: SearchResult!
     
+    enum AnimationStyle {
+        case slide
+        case fade }
+    var dismissAnimationStyle = AnimationStyle.fade
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.tintColor = UIColor(red: 20/255, green: 160/255, blue: 160/255,
@@ -77,6 +82,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func close() {
+        dismissAnimationStyle = .slide
         dismiss(animated: true, completion: nil)
     }
     
@@ -113,7 +119,12 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        switch dismissAnimationStyle {
+        case .slide:
             return SlideOutAnimationController()
+        case .fade:
+            return FadeOutAnimationController()
+        }
     }
 }
 
