@@ -14,6 +14,7 @@ class LandscapeViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     
     var searchResults = [SearchResult]()
+    private var downloadTasks = [URLSessionDownloadTask]()
     
     private var firstTime = true
     
@@ -112,6 +113,9 @@ class LandscapeViewController: UIViewController {
     
     deinit {
         print("deinit \(self)")
+        for task in downloadTasks {
+            task.cancel()
+        }
     }
     
     @IBAction func pageChanged(_ sender: UIPageControl) {
@@ -138,6 +142,7 @@ class LandscapeViewController: UIViewController {
                     } }
             }
             downloadTask.resume()
+            downloadTasks.append(downloadTask)
         }
     }
     
