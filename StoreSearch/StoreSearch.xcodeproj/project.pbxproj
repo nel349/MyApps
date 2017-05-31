@@ -10,8 +10,6 @@
 		CDC08FE81ED50209004D41AB /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC08FE71ED50209004D41AB /* SearchResult.swift */; };
 		CDC08FEA1ED51AE6004D41AB /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC08FE91ED51AE6004D41AB /* SearchResultCell.xib */; };
 		CDC08FEC1ED51FDF004D41AB /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC08FEB1ED51FDF004D41AB /* SearchResultCell.swift */; };
-		CDC08FEE1ED525FC004D41AB /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC08FED1ED525FC004D41AB /* NothingFoundCell.xib */; };
-		CDC08FF01ED77764004D41AB /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC08FEF1ED77764004D41AB /* LoadingCell.xib */; };
 		CDC08FF21ED81FEB004D41AB /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC08FF11ED81FEB004D41AB /* UIImageView+DownloadImage.swift */; };
 		CDC08FF41ED82D01004D41AB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC08FF31ED82D01004D41AB /* DetailViewController.swift */; };
 		CDC08FF61ED83180004D41AB /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC08FF51ED83180004D41AB /* DimmingPresentationController.swift */; };
@@ -21,6 +19,9 @@
 		CDC08FFE1EDB7AAC004D41AB /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC08FFD1EDB7AAC004D41AB /* LandscapeViewController.swift */; };
 		CDC090001EDC15C4004D41AB /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC08FFF1EDC15C4004D41AB /* FadeOutAnimationController.swift */; };
 		CDC090021EDE28FF004D41AB /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC090011EDE28FF004D41AB /* Search.swift */; };
+		CDC090031EDE575C004D41AB /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC090051EDE575C004D41AB /* NothingFoundCell.xib */; };
+		CDC090071EDE58D4004D41AB /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC090091EDE58D4004D41AB /* LoadingCell.xib */; };
+		CDC090101EDE5F3E004D41AB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDC0900E1EDE5F3E004D41AB /* Localizable.strings */; };
 		CDE16BCC1ED4B86F0036693A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE16BCB1ED4B86F0036693A /* AppDelegate.swift */; };
 		CDE16BCE1ED4B86F0036693A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE16BCD1ED4B86F0036693A /* SearchViewController.swift */; };
 		CDE16BD11ED4B86F0036693A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE16BCF1ED4B86F0036693A /* Main.storyboard */; };
@@ -31,8 +32,6 @@
 		CDC08FE71ED50209004D41AB /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		CDC08FE91ED51AE6004D41AB /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		CDC08FEB1ED51FDF004D41AB /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
-		CDC08FED1ED525FC004D41AB /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
-		CDC08FEF1ED77764004D41AB /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		CDC08FF11ED81FEB004D41AB /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		CDC08FF31ED82D01004D41AB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CDC08FF51ED83180004D41AB /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
@@ -42,12 +41,21 @@
 		CDC08FFD1EDB7AAC004D41AB /* LandscapeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
 		CDC08FFF1EDC15C4004D41AB /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
 		CDC090011EDE28FF004D41AB /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		CDC090041EDE575C004D41AB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
+		CDC090061EDE57F4004D41AB /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
+		CDC090081EDE58D4004D41AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
+		CDC0900B1EDE58F8004D41AB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LoadingCell.strings; sourceTree = "<group>"; };
+		CDC0900D1EDE5B02004D41AB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		CDC0900F1EDE5F3E004D41AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CDC090111EDE644D004D41AB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CDC090261EDE6CE0004D41AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		CDC090281EDE6CE6004D41AB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = nl; path = nl.lproj/Info.plist; sourceTree = "<group>"; };
+		CDC0902A1EDE6EFB004D41AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = StoreSearch/Base.lproj/Info.plist; sourceTree = "<group>"; };
 		CDE16BC81ED4B86F0036693A /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE16BCB1ED4B86F0036693A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDE16BCD1ED4B86F0036693A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CDE16BD01ED4B86F0036693A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CDE16BD21ED4B86F0036693A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CDE16BD71ED4B8700036693A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,7 @@
 		CDE16BBF1ED4B86F0036693A = {
 			isa = PBXGroup;
 			children = (
+				CDC090291EDE6EFB004D41AB /* Info.plist */,
 				CDE16BCA1ED4B86F0036693A /* StoreSearch */,
 				CDE16BC91ED4B86F0036693A /* Products */,
 			);
@@ -80,16 +89,17 @@
 		CDE16BCA1ED4B86F0036693A /* StoreSearch */ = {
 			isa = PBXGroup;
 			children = (
+				CDC090271EDE6CE0004D41AB /* Info.plist */,
+				CDC0900E1EDE5F3E004D41AB /* Localizable.strings */,
 				CDE16BCB1ED4B86F0036693A /* AppDelegate.swift */,
 				CDE16BCD1ED4B86F0036693A /* SearchViewController.swift */,
 				CDE16BCF1ED4B86F0036693A /* Main.storyboard */,
 				CDE16BD21ED4B86F0036693A /* Assets.xcassets */,
-				CDE16BD71ED4B8700036693A /* Info.plist */,
 				CDC08FE71ED50209004D41AB /* SearchResult.swift */,
 				CDC08FE91ED51AE6004D41AB /* SearchResultCell.xib */,
 				CDC08FEB1ED51FDF004D41AB /* SearchResultCell.swift */,
-				CDC08FED1ED525FC004D41AB /* NothingFoundCell.xib */,
-				CDC08FEF1ED77764004D41AB /* LoadingCell.xib */,
+				CDC090051EDE575C004D41AB /* NothingFoundCell.xib */,
+				CDC090091EDE58D4004D41AB /* LoadingCell.xib */,
 				CDC08FF11ED81FEB004D41AB /* UIImageView+DownloadImage.swift */,
 				CDC08FF31ED82D01004D41AB /* DetailViewController.swift */,
 				CDC08FF51ED83180004D41AB /* DimmingPresentationController.swift */,
@@ -147,6 +157,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = CDE16BBF1ED4B86F0036693A;
 			productRefGroup = CDE16BC91ED4B86F0036693A /* Products */;
@@ -164,9 +175,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDE16BD31ED4B86F0036693A /* Assets.xcassets in Resources */,
-				CDC08FF01ED77764004D41AB /* LoadingCell.xib in Resources */,
+				CDC090101EDE5F3E004D41AB /* Localizable.strings in Resources */,
+				CDC090071EDE58D4004D41AB /* LoadingCell.xib in Resources */,
 				CDC08FEA1ED51AE6004D41AB /* SearchResultCell.xib in Resources */,
-				CDC08FEE1ED525FC004D41AB /* NothingFoundCell.xib in Resources */,
+				CDC090031EDE575C004D41AB /* NothingFoundCell.xib in Resources */,
 				CDE16BD11ED4B86F0036693A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,10 +209,55 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		CDC090051EDE575C004D41AB /* NothingFoundCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDC090041EDE575C004D41AB /* en */,
+				CDC090061EDE57F4004D41AB /* nl */,
+			);
+			name = NothingFoundCell.xib;
+			sourceTree = "<group>";
+		};
+		CDC090091EDE58D4004D41AB /* LoadingCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDC090081EDE58D4004D41AB /* Base */,
+				CDC0900B1EDE58F8004D41AB /* nl */,
+			);
+			name = LoadingCell.xib;
+			sourceTree = "<group>";
+		};
+		CDC0900E1EDE5F3E004D41AB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDC0900F1EDE5F3E004D41AB /* en */,
+				CDC090111EDE644D004D41AB /* nl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		CDC090271EDE6CE0004D41AB /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDC090261EDE6CE0004D41AB /* Base */,
+				CDC090281EDE6CE6004D41AB /* nl */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		CDC090291EDE6EFB004D41AB /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDC0902A1EDE6EFB004D41AB /* Base */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
 		CDE16BCF1ED4B86F0036693A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CDE16BD01ED4B86F0036693A /* Base */,
+				CDC0900D1EDE5B02004D41AB /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -212,6 +269,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -262,6 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -307,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = M569N7RGY6;
-				INFOPLIST_FILE = StoreSearch/Info.plist;
+				INFOPLIST_FILE = StoreSearch/Base.lproj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.normanlopez.StoreSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -322,7 +381,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = M569N7RGY6;
-				INFOPLIST_FILE = StoreSearch/Info.plist;
+				INFOPLIST_FILE = StoreSearch/Base.lproj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.normanlopez.StoreSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
